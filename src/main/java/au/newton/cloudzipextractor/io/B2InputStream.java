@@ -4,6 +4,18 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class B2InputStream extends InputStream {
+    protected static final String DEFAULT_USER_AGENT = "CloudZipExtractor";
+
+    public B2InputStream(String applicationKeyIdentifier, String applicationKey) {
+        this(applicationKeyIdentifier, applicationKey, DEFAULT_USER_AGENT);
+    }
+
+    public B2InputStream(String applicationKeyIdentifier, String applicationKey, String UserAgent) {
+        // creates an open input stream
+        // - log into B2
+        // - know which file to read
+    }
+
     /**
      * Reads the next byte of data from the input stream. The value byte is
      * returned as an {@code int} in the range {@code 0} to
@@ -24,4 +36,6 @@ public class B2InputStream extends InputStream {
         throw new UnsupportedOperationException("B2InputStream.read() needs to be implemented");
 //        return -1; // no byte is available
     }
+
+    // For supporting BufferedInputStream all that is needed is read(buffer, offset, length)
 }
